@@ -18,5 +18,4 @@ const router = express.Router()
 /// express use ///
 app.use('/.netlify/functions/api', indexRouter)
 
-
 module.exports.handler = serverless(app)
