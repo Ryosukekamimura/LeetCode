@@ -21,4 +21,5 @@ router.get('/comments/:id', course_controller.comments_details)
 
 // POST コメントを投稿する
 router.post('/comments/create', course_controller.comments_create)
+
 module.exports = router;
