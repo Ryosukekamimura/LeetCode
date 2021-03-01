@@ -6,19 +6,10 @@ const app = express()
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
-  res.json({
-    "hello": "h1"
-  })
-})
+var indexRouter = require('../routes/index')
 
-router.get('/test', (req, res) => {
-  res.json({
-    "hello": "test"
-  })
-})
 
-app.use('/.netlify/functions/api', router)
+app.use('/.netlify/functions/api', indexRouter)
 
 
 module.exports.handler = serverless(app)
