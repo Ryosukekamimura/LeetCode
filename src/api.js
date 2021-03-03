@@ -1,6 +1,7 @@
 const express = require('express')
 const serverless = require('serverless-http')
-var mongoose = require('mongoose')
+const mongoose = require('mongoose')
+const cors = require('cors')
 
 /// routers ///
 var indexRouter = require('../routes/index')
@@ -17,5 +18,6 @@ const router = express.Router()
 
 /// express use ///
 app.use('/.netlify/functions/api/v1', indexRouter)
+app.use(cors())
 
 module.exports.handler = serverless(app)
