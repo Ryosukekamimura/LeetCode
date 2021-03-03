@@ -2,6 +2,7 @@ const express = require('express')
 const serverless = require('serverless-http')
 const mongoose = require('mongoose')
 const cors = require('cors')
+const helmet = require('helmet')
 
 /// routers ///
 var indexRouter = require('../routes/index')
@@ -26,5 +27,6 @@ var corsOptions = {
 /// express use ///
 app.use('/.netlify/functions/api/v1', indexRouter)
 app.use(cors(corsOptions))
+app.use(helmet())
 
 module.exports.handler = serverless(app)
