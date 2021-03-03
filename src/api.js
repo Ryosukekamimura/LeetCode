@@ -16,8 +16,15 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 const app = express()
 const router = express.Router()
 
+/// cors settings ///
+var corsOptions = {
+  origin: 'https://gifu-zenkyo.netlify.app/',
+  credentials: true,
+  optionsSuccessStatus: 200
+}
+
 /// express use ///
 app.use('/.netlify/functions/api/v1', indexRouter)
-app.use(cors())
+app.use(cors(corsOptions))
 
 module.exports.handler = serverless(app)
