@@ -1,0 +1,1 @@
+# gifu-u-zenkyo-api
