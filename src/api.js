@@ -29,4 +29,10 @@ app.use('/.netlify/functions/api/v1', indexRouter)
 app.use(cors(corsOptions))
 app.use(helmet())
 
+// CORSを許可する
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+})
+
 module.exports.handler = serverless(app)
